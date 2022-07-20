@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import { View, Text, StyleSheet, Image, TextInput } from "react-native";
+import React, { useContext, useState } from "react";
+import { View, Text, StyleSheet, Image, TextInput, Button } from "react-native";
 import Context from '../../context/Context'
 
 const SignIn = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [mode, setMode] = useState('signup')
     const { 
         theme: { colors } 
     } = useContext(Context)
@@ -24,6 +27,9 @@ const SignIn = () => {
                     secureTextEntry
                     style={[styles.input,{borderBottomColor: colors.primary, marginTop:20}]} 
                 />
+                <View style={{marginTop:20}}>
+                    <Button title="Sign Up" color={colors.secondary} />
+                </View>
             </View>
         </View>
      );
